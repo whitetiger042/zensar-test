@@ -24,9 +24,11 @@ variable "sqs_queue_names" {
 variable "api_gateway_name" {
   description = "Name of the API Gateway"
   type        = string
+  default     = "test-apigw"
 }
 
 variable "account_id" {
   description = "AWS account ID"
   type        = string
+  default     = "12374849494894"
 }

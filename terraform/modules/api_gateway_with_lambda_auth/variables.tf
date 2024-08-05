@@ -7,6 +7,7 @@ variable "region" {
 variable "lambda_s3_bucket" {
   description = "S3 bucket where the Lambda function code is stored"
   type        = string
+  default = "test-s3"
 }
 
 variable "lambda_s3_key" {

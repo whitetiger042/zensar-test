@@ -84,14 +84,14 @@ resource "aws_api_gateway_method" "post_messages" {
   authorizer_id = aws_api_gateway_authorizer.my_authorizer.id
 }
 
-# Integration with SQS
-resource "aws_api_gateway_integration" "sqs_integration" {
+# Integration with SNS
+resource "aws_api_gateway_integration" "sns_integration" {
   rest_api_id             = aws_api_gateway_rest_api.my_api.id
   resource_id             = aws_api_gateway_resource.messages.id
   http_method             = aws_api_gateway_method.post_messages.http_method
   integration_http_method = "POST"
   type                    = "AWS"
-  uri                     = "arn:aws:sqs:${var.region}:${var.account_id}:${aws_sqs_queue.my_queue[0].name}"
+  uri                     = "arn:aws:apigateway:${var.region}:sns:path//${aws_sns_topic.my_topic.name}"
 }
 
 # Create a method response

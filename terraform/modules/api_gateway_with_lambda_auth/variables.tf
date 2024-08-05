@@ -18,6 +18,7 @@ variable "lambda_s3_key" {
 variable "sqs_queue_names" {
   description = "List of SQS queue names"
   type        = list(string)
+  default   = ["my_queue"]
 }
 
 variable "api_gateway_name" {
